@@ -1,0 +1,17 @@
+<div class="container cont col-md-8">
+<div *ngFor="let v of msgArray" class="container cont col-md-8">
+<mat-list>
+
+    <h3 style="color: greenyellow;">Transaction successful</h3>
+    <mat-list-item>Deliver Agent    :   {{this.v.deliveringAgent}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Client   :   {{this.v.seller}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Safe Account    :   {{this.v.safekeepingAccount}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Settlement Place    :    {{this.v.placeOfSettlement}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Safe Place   :   {{this.v.placeOfSafekeepingAccount}}</mat-list-item>
+  </mat-list>
+</div>
+</div>

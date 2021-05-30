@@ -1,0 +1,94 @@
+<div class="container cont col-md-8">
+  
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    Transaction successful..!!
+  </div>
+
+  <div *ngIf="fail" class="alert alert-danger" role="alert">
+    Transaction Failed..!!
+  </div>
+  <form class="form-group" [formGroup]="deliveryForm" (ngSubmit)="onSubmit()">
+  
+    <div class="mb-3">
+      <mat-form-field class="col-md-10" appearance="fill">
+        <mat-label>Select Delivering Branch *</mat-label>
+          <mat-select id="deliveringAgent" formControlName="deliveringAgent">
+            <mat-option value="CRESCHZZ80A">Zurich</mat-option>
+            <mat-option value="CRESCHZZ80O">Galleria</mat-option>
+            <mat-option value="CRESCHZZ80H">Seefeld</mat-option>
+            <mat-option value="CRESCHZZ80Z">Wiedikon</mat-option>
+            <mat-option value="CRESCHZZ80F">Oerlikon</mat-option>
+            <mat-option value="CRESCHZZ80B">Aussersihl</mat-option>
+          </mat-select>
+        <mat-error 
+          *ngIf="deliveryForm.controls.deliveringAgent.touched && deliveryForm.controls.deliveringAgent.errors?.required">
+          Please select delivery branch..!
+        </mat-error>
+      </mat-form-field>    
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field class="col-md-10" appearance="fill">
+        <mat-label>Client of Delivering Agent *</mat-label>
+        <mat-select id="seller" formControlName="seller">
+          <mat-option value="CSAMLULLXXX">CREDIT SUISSE FUND SERVICES (LUXEMBOURG) SA</mat-option>
+          <mat-option value="BBHCUS33XXX">BROWN BROTHERS HARRIMAN AND CO.</mat-option>
+          <mat-option value="MGTCBEBEFND">EUROCLEAR BANK S.A / N.V</mat-option>
+          <mat-option value="CSUKGB2LXXX">CREDIT SUISSE (UK) LIMITED</mat-option>
+          <mat-option value="CRESCHZZ80A">CREDIT SUISSE (SCHWEIZ) AG</mat-option>
+          <mat-option value="INSECHZZXXX">SIX SIS AG</mat-option>
+        </mat-select>
+        <mat-error *ngIf="deliveryForm.controls.seller.touched && deliveryForm.controls.seller.errors?.required">
+          Please enter Client of Delivering Agent
+        </mat-error>
+      </mat-form-field>    
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field class="col-md-10" appearance="fill">
+        <mat-label>Safe Keeping Account *</mat-label>
+        <input matInput type="text" placeholder="Safe Keeping account" id="safekeepingAccount" formControlName="safekeepingAccount">
+        <mat-error *ngIf="deliveryForm.controls.safekeepingAccount.touched && deliveryForm.controls.safekeepingAccount.errors?.required">
+          Please enter Safe Keeping Account
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="mb-3">
+      <mat-form-field class="col-md-10" appearance="fill">
+        <mat-label>Place of Settlement *</mat-label>
+        <mat-select id="placeOfSettlement" formControlName="placeOfSettlement">
+          <mat-option value="CRESCHZZ80A">Zurich</mat-option>
+          <mat-option value="CRESCHZZ80O">Galleria</mat-option>
+          <mat-option value="CRESCHZZ80H">Seefeld</mat-option>
+          <mat-option value="CRESCHZZ80Z">Wiedikon</mat-option>
+          <mat-option value="CRESCHZZ80F">Oerlikon</mat-option>
+          <mat-option value="CRESCHZZ80B">Aussersihl</mat-option>
+        </mat-select>
+        <mat-error *ngIf="deliveryForm.controls.placeOfSettlement.touched && deliveryForm.controls.placeOfSettlement.errors?.required">
+        Please enter place of Settlement
+        </mat-error>
+      </mat-form-field>    
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field class="col-md-10" appearance="fill">
+        <mat-label>Place of Safe Keeping *</mat-label>
+        <mat-select id="placeOfSafekeepingAccount" formControlName="placeOfSafekeepingAccount">
+          <mat-option value="CRESCHZZ80A">Zurich</mat-option>
+          <mat-option value="CRESCHZZ80O">Galleria</mat-option>
+          <mat-option value="CRESCHZZ80H">Seefeld</mat-option>
+          <mat-option value="CRESCHZZ80Z">Wiedikon</mat-option>
+          <mat-option value="CRESCHZZ80F">Oerlikon</mat-option>
+          <mat-option value="CRESCHZZ80B">Aussersihl</mat-option>
+        </mat-select>
+        <mat-error *ngIf="deliveryForm.controls.placeOfSafekeepingAccount.touched && deliveryForm.controls.placeOfSafekeepingAccount.errors?.required">
+          Please enter Safe Keeping Account
+        </mat-error>
+      </mat-form-field> 
+    </div>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="!deliveryForm.valid">Submit</button>
+
+  </form>
+</div>
